@@ -8,6 +8,7 @@ class TLoggerHelper {
   );
 
   static void debug(String message) {
+
     _logger.d(message);
   }
 

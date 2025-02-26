@@ -1,3 +1,5 @@
+import 'package:agroai/features/personalization/screens/settings/widgets/privacy_securty_page.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,13 +14,11 @@ import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 
-
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -50,60 +50,30 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   ///-- Account settings
                   const TSectionHeading(
-                      title: 'Pengaturan Akun', showActionButton: false),
+                      title: 'Preferensi & Pengaturan', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
-                    icon: Iconsax.safe_home,
-                    title: 'Akun Terhubung',
-                    subTitle: 'Kelola akun media sosial dan akun pihak ketiga yang terhubung',
-                    onTap: () => showFeatureUnderDevelopmentDialog(context),
-                  ),
-                  TSettingsMenuTile(
-                      icon: Iconsax.language_square,
-                      title: 'Ganti Bahasa',
-                      onTap: () => showFeatureUnderDevelopmentDialog(context),
+                      icon: Iconsax.sun,
+                      title: 'Ganti Tema',
+                      onTap: () => AppSettings.openAppSettings(
+                          type: AppSettingsType.display),
                       subTitle:
-                          'Pilih bahasa yang Anda inginkan untuk aplikasi'),
+                          'Pilih antara tema gelap dan terang untuk aplikasi Anda'),
                   TSettingsMenuTile(
-                    icon: Iconsax.data,
-                    title: 'Unduhan',
-                    subTitle: 'Lihat dan kelola file yang telah diunduh',
-                    onTap: () => showFeatureUnderDevelopmentDialog(context),
+                    icon: Iconsax.location,
+                    title: 'Lokasi',
+                    subTitle: 'Kelola pengaturan lokasi perangkat',
+                    onTap: () => AppSettings.openAppSettings(
+                        type: AppSettingsType.location),
                   ),
                   TSettingsMenuTile(
-                      icon: Iconsax.support,
-                      title: 'Bantuan & Dukungan',
-                      onTap: () => showFeatureUnderDevelopmentDialog(context),
-                      subTitle:
-                          'Temukan jawaban atas pertanyaan Anda atau hubungi dukungan kami'),
-                  TSettingsMenuTile(
-                      icon: Iconsax.money,
-                      onTap: () => showFeatureUnderDevelopmentDialog(context),
-                      title: 'Langganan Premium',
-                      subTitle:
-                          'Nikmati fitur eksklusif dan lebih banyak manfaat'),
-                  TSettingsMenuTile(
-                    icon: Iconsax.image,
-                    title: 'Kualitas Gambar',
-                    subTitle: 'Gunakan kualitas gambar tinggi',
-                    trailing: Switch(
-                        value: false,
-                        onChanged: (value) {
-                          showFeatureUnderDevelopmentDialog(context);
-                        }),
+                    icon: Iconsax.setting,
+                    title: 'Opsi Lainnya',
+                    subTitle: 'Temukan pengaturan lainnya yang dapat disesuaikan.',
+                    onTap: () => AppSettings.openAppSettings(
+                        type: AppSettingsType.generalSettings),
                   ),
-                  TSettingsMenuTile(
-                    icon: Iconsax.sun,
-                    title: 'Mode',
-                    subTitle: 'Gunakan mode gelap',
-                    trailing: Switch(
-                        value: true,
-                        onChanged: (value) {
-                          showFeatureUnderDevelopmentDialog(context);
-                        }),
-                  ),
-
                   ///-- App settings
                   const SizedBox(height: TSizes.spaceBtwSections),
                   const TSectionHeading(
@@ -127,7 +97,7 @@ class SettingsScreen extends StatelessWidget {
                   TSettingsMenuTile(
                       icon: Iconsax.security_card,
                       title: 'Privasi dan Keamanan',
-                      onTap: () => showFeatureUnderDevelopmentDialog(context),
+                      onTap: ()=> Get.to(() => PrivacyAndSecurityPage()),
                       subTitle: 'Kelola privasi dan keamanan akun Anda'),
 
                   ///--logout button
@@ -137,6 +107,7 @@ class SettingsScreen extends StatelessWidget {
                     child: OutlinedButton(
                         onPressed: () {
                           PanaraConfirmDialog.show(
+                            color: TColors.primary,
                             context,
                             title: "Konfirmasi Logout",
                             message: "Apakah Anda yakin ingin logout?",
@@ -148,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
                             onTapConfirm: () {
                               AuthenticationRepository.instance.logout();
                             },
-                            panaraDialogType: PanaraDialogType.normal,
+                            panaraDialogType: PanaraDialogType.custom,
                             barrierDismissible:
                                 false, // optional parameter (default is true)
                           );

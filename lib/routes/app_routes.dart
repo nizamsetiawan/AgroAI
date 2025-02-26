@@ -1,3 +1,5 @@
+import 'package:agroai/features/personalization/screens/settings/widgets/privacy_securty_page.dart';
+import 'package:agroai/navigation_menu.dart';
 import 'package:get/get.dart';
 import 'package:agroai/features/authentication/screens/login/login.dart';
 import 'package:agroai/features/authentication/screens/onboarding/onboarding.dart';
@@ -10,10 +12,11 @@ import 'package:agroai/features/personalization/screens/settings/settings.dart';
 import 'package:agroai/features/detection/screens/home/home.dart';
 import 'package:agroai/routes/routes.dart';
 
-import '../features/article/article.dart';
+import '../features/article/screens/all_articles/article.dart';
 
 class AppRoutes {
   static final pages = [
+    GetPage(name: TRoutes.navigationMenu, page: () => const NavigationMenu()),
     GetPage(name: TRoutes.home, page: () => const HomeScreen()),
     GetPage(name: TRoutes.article, page: () => const ArticleScreen()),
     GetPage(name: TRoutes.settings, page: () => const SettingsScreen()),
@@ -24,5 +27,6 @@ class AppRoutes {
     GetPage(name: TRoutes.signIn, page: () => const LoginScreen()),
     GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
     GetPage(name: TRoutes.onBoarding, page: () => const OnBoardingScreen()),
+    GetPage(name: TRoutes.privacyAndSecurity, page: () => const PrivacyAndSecurityPage())
   ];
 }

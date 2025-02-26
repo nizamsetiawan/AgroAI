@@ -9,6 +9,8 @@ import 'package:agroai/utils/helpers/loaders.dart';
 import 'package:agroai/utils/helpers/network_manager.dart';
 import 'package:agroai/utils/popups/full_screen_loader.dart';
 
+import '../../../../utils/logging/logger.dart';
+
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();
 
@@ -68,6 +70,8 @@ class SignupController extends GetxController {
       final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
+
+      TLoggerHelper.debug('User successfully signed up with email: ${userCredential}');
 
       // save authenticated new data in firebase firestore
       final newUser = UserModel(

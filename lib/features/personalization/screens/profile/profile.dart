@@ -11,6 +11,8 @@ import 'package:agroai/features/personalization/screens/profile/Widgets/profile_
 import 'package:agroai/utils/constraints/image_strings.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
 
+import '../../../../utils/constraints/colors.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -49,7 +51,10 @@ class ProfileScreen extends StatelessWidget {
                     }),
                     TextButton(
                         onPressed: () => controller.uploadUserProfilePicture(),
-                        child: const Text('Ganti Foto Profil'))
+                        child: const Text(
+                          'Ganti Foto Profil',
+                          style: TextStyle(color: TColors.primary),
+                        ))
                   ],
                 ),
               ),

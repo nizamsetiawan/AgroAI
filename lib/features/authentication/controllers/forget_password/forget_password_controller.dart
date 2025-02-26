@@ -7,6 +7,8 @@ import 'package:agroai/utils/helpers/loaders.dart';
 import 'package:agroai/utils/helpers/network_manager.dart';
 import 'package:agroai/utils/popups/full_screen_loader.dart';
 
+import '../../../../utils/logging/logger.dart';
+
 class ForgetPasswordController extends GetxController {
   static ForgetPasswordController get instance => Get.find();
 
@@ -27,6 +29,8 @@ class ForgetPasswordController extends GetxController {
         TFullScreenLoader.stopLoading();
         return;
       }
+
+      TLoggerHelper.info('Sending password reset email to: ${email.text.trim()}');
 
       //form validation
       if(!forgetPasswordFormKey.currentState!.validate()) {
@@ -64,6 +68,8 @@ class ForgetPasswordController extends GetxController {
         TFullScreenLoader.stopLoading();
         return;
       }
+      TLoggerHelper.info('Resending password reset email to: $email');
+
 
 
       //send email to reset password

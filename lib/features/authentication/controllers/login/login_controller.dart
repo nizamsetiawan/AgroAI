@@ -8,6 +8,8 @@ import 'package:agroai/utils/helpers/loaders.dart';
 import 'package:agroai/utils/helpers/network_manager.dart';
 import 'package:agroai/utils/popups/full_screen_loader.dart';
 
+import '../../../../utils/logging/logger.dart';
+
 class LoginController extends GetxController {
 
   ///variables
@@ -54,6 +56,7 @@ class LoginController extends GetxController {
 
       //login user with email & password authentication
       final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      TLoggerHelper.debug('User successfully signed in with email: ${userCredentials}');
 
       //remove loader
       TFullScreenLoader.stopLoading();
@@ -82,8 +85,12 @@ class LoginController extends GetxController {
       // Google Authentication
       final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
 
+      TLoggerHelper.debug('User successfully signed in with google: ${userCredentials}');
+
       // Save User Record
       await userController.saveUserRecord(userCredentials);
+
+
 
       // Remove Loader
       TFullScreenLoader.stopLoading();

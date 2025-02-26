@@ -1,3 +1,5 @@
+import 'package:agroai/utils/logging/logger.dart';
+
 /// Custom exception class to handle various format-related errors.
 class TFormatException implements Exception {
   /// The associated error message.
@@ -8,6 +10,7 @@ class TFormatException implements Exception {
 
   /// Create a format exception from a specific error message.
   factory TFormatException.fromMessage(String message) {
+    TLoggerHelper.error("Format Exception : $message");
     return TFormatException(message);
   }
 

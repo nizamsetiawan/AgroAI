@@ -1,3 +1,4 @@
+import 'package:agroai/utils/logging/logger.dart';
 import 'package:get/get.dart';
 import 'package:agroai/data/repositories/banners/banners_repository.dart';
 import 'package:agroai/features/detection/models/banner_model.dart';
@@ -24,22 +25,30 @@ class BannerController extends GetxController {
 
   ///fetch banners
   Future<void> fetchBanners() async {
-    try{
-      //show loader while loading categories
+    try {
+
+      // Show loader while loading banners
       isLoading.value = true;
 
-      //fetch banners
+      // Fetch banners from BannerRepository
       final bannerRepo = Get.put(BannerRepository());
       final banners = await bannerRepo.fetchBanners();
 
-      //assign banners
+      TLoggerHelper.info('Successfully fetched ${banners.length} banners');
+
+      for (var banner in banners) {
+        TLoggerHelper.debug('Status: ${banner.active}, Image URL: ${banner.imageUrl}');
+      }
+
+      // Assign banners to the list
       this.banners.assignAll(banners);
 
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh tidak...', message: e.toString());
-    }finally{
-      //remove loader
+    } finally {
+      // Remove loader after fetching is done
       isLoading.value = false;
     }
   }
+
 }

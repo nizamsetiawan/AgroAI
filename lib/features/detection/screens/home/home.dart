@@ -1,57 +1,103 @@
+import 'package:agroai/common/widgets/option_menu/option_menu_card.dart';
+import 'package:agroai/features/detection/controllers/location_controller.dart';
 import 'package:agroai/features/detection/screens/home/widgets/home_appbar.dart';
-import 'package:agroai/features/detection/screens/home/widgets/promo_slider.dart';
+import 'package:agroai/features/detection/screens/home/widgets/home_categories.dart';
+import 'package:agroai/features/detection/screens/home/widgets/home_slider.dart';
+import 'package:agroai/utils/constraints/image_strings.dart';
+import 'package:agroai/utils/constraints/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:agroai/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../../common/widgets/custom_shapes/containers/location_container.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
+import '../../controllers/banner_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(GeoTaggingController());
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             ///header
-            const TPrimaryHeaderContainer(
+            TPrimaryHeaderContainer(
               child: Column(
                 children: [
                   ///appbar
-                  THomeAppBar(),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  //
+                  Obx(() {
+                    return TLocationContainer(
+                      text: '${controller.strLocation.value}',
+                    );
+                  }),
+
+                  const SizedBox(height: TSizes.spaceBtwItems),
+
                   ///categories
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       children: [
-                        ///heading of categories
-                        // TSectionHeading(
-                        //     title: 'Kategori Mindfulness',
-                        //     showActionButton: false,
-                        //     textColor: Colors.white),
-                        // SizedBox(height: TSizes.spaceBtwItems),
-
-                        ///categories
-                        // THomeCategories(),
+                        TSectionHeading(
+                            title: 'Kategori Artikel',
+                            showActionButton: false,
+                            textColor: Colors.white),
+                        SizedBox(height: TSizes.spaceBtwItems),
+                        THomeCategories(),
                       ],
                     ),
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),
 
             ///Body
             Padding(
-              padding: const EdgeInsets.only(left: TSizes.defaultSpace, right: TSizes.defaultSpace, bottom: TSizes.defaultSpace),
+              padding: const EdgeInsets.only(
+                  left: TSizes.defaultSpace,
+                  right: TSizes.defaultSpace,
+                  bottom: TSizes.defaultSpace),
               child: Column(
                 children: [
                   const TPromoSlider(),
                   const SizedBox(height: TSizes.spaceBtwSections),
+                  TSectionHeading(
+                      title: 'Menu Pilihan',
+                      showActionButton: false,
+                      textColor: Colors.black),
+                  SizedBox(height: TSizes.spaceBtwItems),
+                  TOptionMenuCard(
+                      showBorder: true,
+                      title: TTexts.cameraTitle,
+                      subtitle: TTexts.cameraSubTitle,
+                      imagePath: TImages.urlCameraIcon),
+                  SizedBox(height: TSizes.spaceBtwItems),
+                  TOptionMenuCard(
+                      showBorder: true,
+                      title: TTexts.galleryTitle,
+                      subtitle: TTexts.gallerySubTitle,
+                      imagePath: TImages.urlGalleryIcon),
+                  SizedBox(height: TSizes.spaceBtwItems),
+                  TOptionMenuCard(
+                      showBorder: true,
+                      title: TTexts.historyDetectionTitle,
+                      subtitle: TTexts.historyDetectionSubTitle,
+                      imagePath: TImages.urlHistoryIcon),
+                  const SizedBox(height: TSizes.spaceBtwSections),
 
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

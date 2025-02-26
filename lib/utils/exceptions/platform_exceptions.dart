@@ -1,8 +1,12 @@
+import 'package:agroai/utils/logging/logger.dart';
+
 /// Exception class for handling various platform-related errors.
 class TPlatformException implements Exception {
   final String code;
 
-  TPlatformException(this.code);
+  TPlatformException(this.code){
+    TLoggerHelper.error('Platform Exception: $code');
+  }
   String get message {
     switch (code) {
       case 'INVALID_LOGIN_CREDENTIALS':

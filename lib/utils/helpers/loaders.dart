@@ -1,3 +1,4 @@
+import 'package:agroai/utils/logging/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -24,6 +25,7 @@ class TLoaders {
         )
         )
     );
+    TLoggerHelper.debug(message);
   }
 
   static successSnackBar({required title, message = '', duration = 3}) {
@@ -33,12 +35,13 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
-      backgroundColor: TColors.primary,
+      backgroundColor: TColors.success,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),
       icon: const Icon(Iconsax.check, color: TColors.white),
     );
+    TLoggerHelper.debug(message);
   }
 
   static warningSnackBar({required title,message = ''}) {
@@ -48,12 +51,13 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: TColors.white,
-      backgroundColor: Colors.orange,
+      backgroundColor: TColors.info,
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),
       icon: const Icon(Iconsax.warning_2, color: TColors.white),
     );
+    TLoggerHelper.warning(message);
   }
 
   static errorSnackBar({required title,message = ''}) {
@@ -63,11 +67,12 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: TColors.white,
-      backgroundColor: Colors.red,
+      backgroundColor: TColors.error,
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),
       icon: const Icon(Iconsax.warning_2, color: TColors.white),
     );
+    TLoggerHelper.error(message);
   }
 }

@@ -1,10 +1,10 @@
-import 'package:agroai/features/article/article.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:agroai/features/personalization/screens/settings/settings.dart';
 import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/helpers/helper_functions.dart';
+import 'features/article/screens/all_articles/article.dart';
 import 'features/detection/screens/home/home.dart';
 
 

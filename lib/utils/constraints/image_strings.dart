@@ -30,7 +30,6 @@ class TImages{
   static const String orderCompletedAnimation = "assets/images/animations/order-complete-car-delivery-animation.json";
   static const String packageAnimation = "assets/images/animations/98783-packaging-in-progress.json";
   static const String paperPlaneAnimation = "assets/images/animations/110052-paper-plane.json";
-  static const String carAnimation = "assets/images/animations/136491-animation-lottie-car-rides.json";
   static const String pencilAnimation = "assets/images/animations/140429-pencil-drawing.json";
   static const String searchAnimation = "assets/images/animations/72785-searching.json";
   static const String emptyAnimation = "assets/images/animations/53207-empty-file.json";
@@ -50,6 +49,11 @@ class TImages{
 
   // -- Profile
   static const String user = "assets/images/user/user.png";
+
+  //Option Menu
+static const String urlCameraIcon = 'https://img.icons8.com/?size=100&id=110581&format=png&color=000000';
+static const String urlGalleryIcon = 'https://img.icons8.com/?size=100&id=64062&format=png&color=000000';
+static const String urlHistoryIcon = 'https://img.icons8.com/?size=100&id=122593&format=png&color=000000';
 
 
 

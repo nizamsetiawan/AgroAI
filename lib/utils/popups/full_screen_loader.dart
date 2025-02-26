@@ -1,3 +1,4 @@
+import 'package:agroai/utils/logging/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:agroai/common/widgets/loaders/animation_loader.dart';
@@ -28,10 +29,12 @@ class TFullScreenLoader {
           ),
         ),
     );
+    TLoggerHelper.info('Loading dialog opened');
   }
 
   ///stop the currently loading open dialog
   static stopLoading() {
-    Navigator.of(Get.overlayContext!).pop(); //close dialog using navigator
+    Navigator.of(Get.overlayContext!).pop(); //
+    TLoggerHelper.info('Loading dialog closed');// clos// e dialog using navigator
   }
 }

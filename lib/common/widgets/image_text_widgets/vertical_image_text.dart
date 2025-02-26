@@ -37,15 +37,16 @@ class TVerticalImageText extends StatelessWidget {
               padding: TSizes.sm * 1.4,
               isNetworkImage: isNetworkImage,
               backgroundColor: backgroundColor,
-              overlayColor: dark ? TColors.light : TColors.dark,
+              // overlayColor: dark ? TColors.light : TColors.dark,
             ),
 
             ///text
             const SizedBox(height: TSizes.spaceBtwItems / 3),
             SizedBox(
-                width: 55,
+                width: 65,
                 child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium!

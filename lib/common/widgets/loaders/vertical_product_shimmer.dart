@@ -3,8 +3,8 @@ import 'package:agroai/common/widgets/layouts/grid_layout.dart';
 import 'package:agroai/common/widgets/loaders/shimmer.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
 
-class TVerticalProductShimmer extends StatelessWidget {
-  const TVerticalProductShimmer({Key? key,
+class TVVerticalArticleShimmer extends StatelessWidget {
+  const TVVerticalArticleShimmer({Key? key,
      this.itemCount = 4}) : super(key: key);
 
   final int itemCount;

@@ -1,10 +1,14 @@
+import 'package:agroai/utils/logging/logger.dart';
+
 /// Custom exception class to handle various Firebase-related errors.
 class TFirebaseException implements Exception {
   /// The error code associated with the exception.
   final String code;
 
   /// Constructor that takes an error code.
-  TFirebaseException(this.code);
+  TFirebaseException(this.code){
+    TLoggerHelper.error('Firebase Exception: $code');
+  }
 
   /// Get the corresponding error message based on the error code.
   /// Mendapatkan pesan kesalahan yang sesuai berdasarkan kode kesalahan.

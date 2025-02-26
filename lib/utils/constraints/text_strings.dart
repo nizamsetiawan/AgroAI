@@ -32,6 +32,14 @@ class TTexts{
   static const String yourAccountCreatedTitle = "Akun Anda berhasil dibuat";
   static const String yourAccountCreatedSubTitle = "Selamat datang di dunia mindfulness Anda: Akun Anda sudah aktif, mulailah perjalanan menuju kedamaian batin.";
 
+//optionMenu
+  static const String cameraTitle ="Kamera";
+  static const String cameraSubTitle = "Gunakan kamera untuk mengambil foto baru.";
+  static const String galleryTitle = "Galeri";
+  static const String gallerySubTitle = "Pilih gambar dari galeri perangkat Anda.";
+  static const String historyDetectionTitle = "Riwayat Deteksi";
+  static const String historyDetectionSubTitle = "Pilih untuk melihat riwayat hasil deteksi.";
+
 
 
 

@@ -8,6 +8,8 @@ import 'package:agroai/utils/constraints/image_strings.dart';
 import 'package:agroai/utils/constraints/text_strings.dart';
 import 'package:agroai/utils/helpers/loaders.dart';
 
+import '../../../../utils/logging/logger.dart';
+
 class VerifyEmailController extends GetxController {
   static VerifyEmailController get instance => Get.find();
 
@@ -22,6 +24,9 @@ class VerifyEmailController extends GetxController {
   ///send email verification link
   sendEmailVerification() async {
     try {
+
+      TLoggerHelper.info('Sending email verification to: ${FirebaseAuth.instance.currentUser?.email}');
+
       await AuthenticationRepository.instance.sendEmailVerification();
       TLoaders.successSnackBar(
           title: 'Email sent',

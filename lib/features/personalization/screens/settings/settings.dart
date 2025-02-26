@@ -1,3 +1,4 @@
+import 'package:agroai/features/personalization/screens/settings/widgets/feedback_form.dart';
 import 'package:agroai/features/personalization/screens/settings/widgets/privacy_securty_page.dart';
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ import 'package:agroai/features/personalization/screens/profile/profile.dart';
 import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
+
+import '../../../../utils/constraints/text_strings.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -50,55 +53,50 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   ///-- Account settings
                   const TSectionHeading(
-                      title: 'Preferensi & Pengaturan', showActionButton: false),
+                      title: TTexts.accountSettingsTitle, showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
                       icon: Iconsax.sun,
-                      title: 'Ganti Tema',
+                      title: TTexts.changeThemeTitle,
                       onTap: () => AppSettings.openAppSettings(
                           type: AppSettingsType.display),
-                      subTitle:
-                          'Pilih antara tema gelap dan terang untuk aplikasi Anda'),
+                      subTitle: TTexts.changeThemeSubtitle),
                   TSettingsMenuTile(
                     icon: Iconsax.location,
-                    title: 'Lokasi',
-                    subTitle: 'Kelola pengaturan lokasi perangkat',
+                    title: TTexts.locationTitle,
+                    subTitle: TTexts.locationSubtitle,
                     onTap: () => AppSettings.openAppSettings(
                         type: AppSettingsType.location),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.setting,
-                    title: 'Opsi Lainnya',
-                    subTitle: 'Temukan pengaturan lainnya yang dapat disesuaikan.',
+                    title: TTexts.otherOptionsTitle,
+                    subTitle: TTexts.otherOptionsSubtitle,
                     onTap: () => AppSettings.openAppSettings(
                         type: AppSettingsType.generalSettings),
                   ),
                   ///-- App settings
                   const SizedBox(height: TSizes.spaceBtwSections),
                   const TSectionHeading(
-                      title: 'Tentang Aplikasi', showActionButton: false),
+                      title: TTexts.aboutAppTitle, showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   TSettingsMenuTile(
                       icon: Iconsax.information,
-                      title: 'Tentang',
+                      title: TTexts.aboutAppTitle,
                       onTap: () => showFeatureUnderDevelopmentDialog(context),
-                      subTitle:
-                          'Informasi tentang aplikasi dan tim pengembang'),
+                      subTitle: TTexts.aboutAppSubtitle),
                   TSettingsMenuTile(
                     icon: Iconsax.security_user,
-                    title: 'Berikan Penilaian',
-                    onTap: () {
-                      showFeatureUnderDevelopmentDialog(context);
-                    },
-                    subTitle:
-                        'Bantu kami dengan memberikan ulasan di Play Store',
+                    title: TTexts.giveRatingTitle,
+                    onTap: () => Get.to(() => FeedbackForm()),
+                    subTitle: TTexts.giveRatingSubtitle,
                   ),
                   TSettingsMenuTile(
                       icon: Iconsax.security_card,
-                      title: 'Privasi dan Keamanan',
-                      onTap: ()=> Get.to(() => PrivacyAndSecurityPage()),
-                      subTitle: 'Kelola privasi dan keamanan akun Anda'),
+                      title: TTexts.privacyAndSecurityTitle,
+                      onTap: () => Get.to(() => PrivacyAndSecurityPage()),
+                      subTitle: TTexts.privacyAndSecuritySubtitle),
 
                   ///--logout button
                   const SizedBox(height: TSizes.spaceBtwSections),
@@ -109,10 +107,10 @@ class SettingsScreen extends StatelessWidget {
                           PanaraConfirmDialog.show(
                             color: TColors.primary,
                             context,
-                            title: "Konfirmasi Logout",
-                            message: "Apakah Anda yakin ingin logout?",
-                            confirmButtonText: "Keluar",
-                            cancelButtonText: "Batal",
+                            title: TTexts.logoutConfirmationTitle,
+                            message: TTexts.logoutConfirmationMessage,
+                            confirmButtonText: TTexts.logoutButtonText,
+                            cancelButtonText: TTexts.cancelButtonText,
                             onTapCancel: () {
                               Navigator.pop(context);
                             },
@@ -121,10 +119,10 @@ class SettingsScreen extends StatelessWidget {
                             },
                             panaraDialogType: PanaraDialogType.custom,
                             barrierDismissible:
-                                false, // optional parameter (default is true)
+                            false, // optional parameter (default is true)
                           );
                         },
-                        child: const Text('Logout')),
+                        child: const Text(TTexts.logoutButtonText)),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections * 2.5),
                 ],
@@ -140,9 +138,9 @@ class SettingsScreen extends StatelessWidget {
 void showFeatureUnderDevelopmentDialog(BuildContext context) {
   PanaraInfoDialog.show(
     context,
-    title: "Maaf",
-    message: "Fitur ini masih dalam tahap pengembangan",
-    buttonText: "Okay",
+    title: TTexts.featureUnderDevelopmentTitle,
+    message: TTexts.featureUnderDevelopmentMessage,
+    buttonText: TTexts.okButtonText,
     onTapDismiss: () {
       Navigator.pop(context);
     },

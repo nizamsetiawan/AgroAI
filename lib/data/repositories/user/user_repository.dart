@@ -14,6 +14,8 @@ import 'package:agroai/utils/exceptions/format_exceptions.dart';
 import 'package:agroai/utils/exceptions/platform_exceptions.dart';
 import "package:http/http.dart" as http;
 
+import '../../../features/personalization/models/feedback_model.dart';
+
 
 ///repository class for user-related operations
 class UserRepository extends GetxController {
@@ -25,6 +27,21 @@ class UserRepository extends GetxController {
   Future<void> saveUserRecord(UserModel user) async {
     try{
       await _db.collection('Users').doc(user.id).set(user.toJson());
+
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, try again';
+    }
+  }
+
+  Future<void> saveFeedbackRecord(FeedbackModel feedbackModel) async {
+    try{
+      await _db.collection('Feedback').doc(feedbackModel.email).set(feedbackModel.toJson());
 
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;

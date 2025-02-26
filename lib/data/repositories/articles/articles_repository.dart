@@ -45,20 +45,4 @@ class ArticlesRepository extends GetxController {
     }
   }
 
-  // Future<List<ArticleModel>> fetchArticlesByQuery(Query query) async {
-  //   try {
-  //     final querySnapshot = await query.get();
-  //     final List<ArticleModel> productList = querySnapshot.docs
-  //         .map((documentSnapshot) =>
-  //         ArticleModel.fromQuerySnapshot(documentSnapshot))
-  //         .toList();
-  //     return productList;
-  //   } on FirebaseException catch (e) {
-  //     throw TFirebaseException(e.code).message;
-  //   } on PlatformException catch (e) {
-  //     throw TPlatformException(e.code).message;
-  //   } catch (e) {
-  //     throw 'Something went wrong! Please try again';
-  //   }
-  // }
 }

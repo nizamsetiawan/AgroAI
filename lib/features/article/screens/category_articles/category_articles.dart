@@ -31,11 +31,6 @@ class ArticleByCategoryScreen extends StatelessWidget {
                 Obx(() {
                   if (articleController.isLoading.value)
                     return const TVVerticalArticleShimmer();
-                  // if (articleController.allArticles.isEmpty) {
-                  //   return Center(
-                  //       child: Text('No data found!',
-                  //           style: Theme.of(context).textTheme.bodyMedium));
-                  // }
                   return TGridLayout(
                       itemCount: articleController.categoryArticles.length,
                       itemBuilder: (_, index) => ArticlesListTile(

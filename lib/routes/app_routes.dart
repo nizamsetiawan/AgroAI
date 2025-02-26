@@ -1,3 +1,4 @@
+import 'package:agroai/features/personalization/screens/settings/widgets/feedback_form.dart';
 import 'package:agroai/features/personalization/screens/settings/widgets/privacy_securty_page.dart';
 import 'package:agroai/navigation_menu.dart';
 import 'package:get/get.dart';
@@ -27,6 +28,8 @@ class AppRoutes {
     GetPage(name: TRoutes.signIn, page: () => const LoginScreen()),
     GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
     GetPage(name: TRoutes.onBoarding, page: () => const OnBoardingScreen()),
-    GetPage(name: TRoutes.privacyAndSecurity, page: () => const PrivacyAndSecurityPage())
+    GetPage(name: TRoutes.privacyAndSecurity, page: () => const PrivacyAndSecurityPage()),
+    GetPage(name: TRoutes.feedbackForm, page: () => const FeedbackForm())
+
   ];
 }

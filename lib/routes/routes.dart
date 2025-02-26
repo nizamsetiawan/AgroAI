@@ -15,4 +15,5 @@ class TRoutes {
   static const onBoarding = '/on-boarding';
   static const privacyAndSecurity = '/privacy-security';
   static const navigationMenu = '/navigation-menu';
+  static const feedbackForm = '/feedback-form';
 }

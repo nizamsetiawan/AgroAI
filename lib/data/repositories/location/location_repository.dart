@@ -1,5 +1,4 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 
 class GeoTaggingRepository extends GetxController {
@@ -32,16 +31,4 @@ class GeoTaggingRepository extends GetxController {
     );
   }
 
-  Future<String> getAddressFromCoordinates(Position position) async {
-    try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
-        position.latitude,
-        position.longitude,
-      );
-      Placemark place = placemarks[0];
-      return '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-    } catch (e) {
-      throw 'Error fetching address: $e';
-    }
-  }
 }

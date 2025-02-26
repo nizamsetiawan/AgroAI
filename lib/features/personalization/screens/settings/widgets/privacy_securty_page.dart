@@ -5,6 +5,7 @@ import 'package:agroai/utils/constraints/sizes.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/texts/option_menu_text.dart';
 import '../../../../../common/widgets/texts/product_title_text.dart';
+import '../../../../../utils/constraints/text_strings.dart';
 
 class PrivacyAndSecurityPage extends StatelessWidget {
   const PrivacyAndSecurityPage({super.key});
@@ -22,9 +23,8 @@ class PrivacyAndSecurityPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Title Section with Text widget
               Text(
-                'Keamanan dan Privasi Anda Adalah Prioritas Kami',
+                TTexts.privacyAndSecurityTitle,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -34,65 +34,51 @@ class PrivacyAndSecurityPage extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               TOptionMenuText(
-                title:'Kami berkomitmen untuk menjaga privasi dan keamanan data Anda. Di bawah ini, kami menjelaskan bagaimana aplikasi ini mengelola dan melindungi informasi pribadi Anda.',
+                title: TTexts.privacyAndSecurityDescription,
                 maxLines: 10,
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Data Collection
               _buildSection(
-                title: 'Pengumpulan Data',
-                content:
-                'Aplikasi ini hanya mengumpulkan data yang diperlukan untuk meningkatkan pengalaman Anda. Kami tidak mengumpulkan data pribadi yang tidak relevan, seperti informasi identitas Anda, tanpa izin Anda.',
+                title: TTexts.dataCollectionTitle,
+                content: TTexts.dataCollectionContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Data Protection
               _buildSection(
-                title: 'Perlindungan Data',
-                content:
-                'Semua data yang dikumpulkan oleh aplikasi dienkripsi dengan standar keamanan tinggi untuk memastikan data Anda terlindungi dari akses yang tidak sah.',
+                title: TTexts.dataProtectionTitle,
+                content: TTexts.dataProtectionContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Privacy Policy
               _buildSection(
-                title: 'Kebijakan Privasi',
-                content:
-                'Kami sangat menghargai privasi Anda. Kebijakan privasi kami menjelaskan jenis data yang kami kumpulkan, bagaimana data tersebut digunakan, dan langkah-langkah yang kami ambil untuk melindunginya.',
+                title: TTexts.privacyPolicyTitle,
+                content: TTexts.privacyPolicyContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // User Control
               _buildSection(
-                title: 'Kontrol Pengguna',
-                content:
-                'Anda memiliki kontrol penuh atas data Anda. Anda dapat mengakses, mengubah, atau menghapus data pribadi Anda kapan saja melalui pengaturan akun.',
+                title: TTexts.userControlTitle,
+                content: TTexts.userControlContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Third Party Data Sharing
               _buildSection(
-                title: 'Berbagi Data dengan Pihak Ketiga',
-                content:
-                'Kami tidak akan membagikan data Anda dengan pihak ketiga tanpa izin eksplisit dari Anda, kecuali dalam situasi yang diharuskan oleh hukum.',
+                title: TTexts.thirdPartyDataSharingTitle,
+                content: TTexts.thirdPartyDataSharingContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Security Features
               _buildSection(
-                title: 'Fitur Keamanan',
-                content:
-                'Aplikasi ini dilengkapi dengan fitur keamanan seperti autentikasi dua faktor untuk melindungi akun Anda dari akses yang tidak sah.',
+                title: TTexts.securityFeaturesTitle,
+                content: TTexts.securityFeaturesContent,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Contact Us
               _buildSection(
-                title: 'Hubungi Kami',
-                content:
-                'Jika Anda memiliki pertanyaan atau kekhawatiran tentang privasi atau keamanan data Anda, jangan ragu untuk menghubungi tim dukungan kami di support@agroai.com.',
+                title: TTexts.contactUsTitle,
+                content: TTexts.contactUsContent,
               ),
             ],
           ),
@@ -105,10 +91,9 @@ class PrivacyAndSecurityPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Title widget for each section
         Text(
           title,
-          textAlign: TextAlign.center,  // Center align the title
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
@@ -117,12 +102,11 @@ class PrivacyAndSecurityPage extends StatelessWidget {
         ),
         const SizedBox(height: 8),
 
-        // Content widget with TProductTitleText
         TProductTitleText(
           title: content,
-          textAlign: TextAlign.justify,  // Justify text for content
-          smallSize: true,  // You can adjust this based on your design preference
-          maxLines: 1000,  // Ensures long text doesn't overflow
+          textAlign: TextAlign.justify,
+          smallSize: true,
+          maxLines: 1000,
         ),
       ],
     );

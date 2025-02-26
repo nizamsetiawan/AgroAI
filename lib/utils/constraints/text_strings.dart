@@ -1,19 +1,22 @@
-
-
 /// this class contains all the app's texts in string formats
 
-class TTexts{
-
+class TTexts {
   // -- GLOBAL TEXTS
   // -- OnBoarding TEXTS
 
-  static const String onBoardingTitle1 = "Bantu Petani Deteksi Penyakit Daun Tanaman";
-  static const String onBoardingTitle2 = "Perawatan Daun Tanaman Lebih Mudah dan Cepat";
-  static const String onBoardingTitle3 = "Pemantauan Tanaman dengan Timer Cerdas";
+  static const String onBoardingTitle1 =
+      "Bantu Petani Deteksi Penyakit Daun Tanaman";
+  static const String onBoardingTitle2 =
+      "Perawatan Daun Tanaman Lebih Mudah dan Cepat";
+  static const String onBoardingTitle3 =
+      "Pemantauan Tanaman dengan Timer Cerdas";
 
-  static const String onBoardingSubTitle1 = "Petani dapat memantau kesehatan daun tanaman secara cepat dan akurat, membantu mengidentifikasi penyakit sebelum terlambat.";
-  static const String onBoardingSubTitle2 = "Menggunakan teknologi AI, aplikasi ini memungkinkan petani untuk memeriksa daun tanaman secara instan dan memberikan solusi tepat waktu untuk kesehatan tanaman.";
-  static const String onBoardingSubTitle3 = "Aplikasi ini membantu petani mengatur waktu pemantauan daun tanaman secara efisien, memberikan peringatan penyakit secara tepat waktu untuk tindakan preventif.";
+  static const String onBoardingSubTitle1 =
+      "Petani dapat memantau kesehatan daun tanaman secara cepat dan akurat, membantu mengidentifikasi penyakit sebelum terlambat.";
+  static const String onBoardingSubTitle2 =
+      "Menggunakan teknologi AI, aplikasi ini memungkinkan petani untuk memeriksa daun tanaman secara instan dan memberikan solusi tepat waktu untuk kesehatan tanaman.";
+  static const String onBoardingSubTitle3 =
+      "Aplikasi ini membantu petani mengatur waktu pemantauan daun tanaman secara efisien, memberikan peringatan penyakit secara tepat waktu untuk tindakan preventif.";
 
   //--Home
   static const String homeAppbarTitle = "Selamat datang di AgroAI,";
@@ -21,28 +24,34 @@ class TTexts{
 
   //--authentication headings
   static const String loginTitle = "Selamat Datang di AgroAI";
-  static const String loginSubTitle = "Maksimalkan hasil pertanian dengan deteksi penyakit daun yang cepat dan tepat menggunakan teknologi AI.";
+  static const String loginSubTitle =
+      "Maksimalkan hasil pertanian dengan deteksi penyakit daun yang cepat dan tepat menggunakan teknologi AI.";
   static const String signUpTitle = "Mari buat akun Anda";
-  static const String forgotPasswordSubTitle = "Tidak masalah, kadang kita lupa. Masukkan email Anda dan kami akan kirimkan tautan untuk reset kata sandi";
-  static const String changeYourPasswordTitle = "Email reset kata sandi terkirim";
-  static const String changeYourPasswordSubTitle = "Keamanan akun Anda adalah prioritas kami! Kami telah mengirimkan tautan aman untuk mengubah kata sandi dan melindungi akun Anda";
+  static const String forgotPasswordSubTitle =
+      "Tidak masalah, kadang kita lupa. Masukkan email Anda dan kami akan kirimkan tautan untuk reset kata sandi";
+  static const String changeYourPasswordTitle =
+      "Email reset kata sandi terkirim";
+  static const String changeYourPasswordSubTitle =
+      "Keamanan akun Anda adalah prioritas kami! Kami telah mengirimkan tautan aman untuk mengubah kata sandi dan melindungi akun Anda";
   static const String confirmEmail = "Verifikasi email Anda";
-  static const String confirmEmailSubTitle = "Selamat! Akun Anda siap: Verifikasi email Anda untuk memulai perjalanan mindfulness dan nikmati pengalaman yang lebih tenang.";
-  static const String emailNotReceivedMessage = "Tidak menerima email? Periksa folder spam/junk atau kirim ulang email verifikasi.";
+  static const String confirmEmailSubTitle =
+      "Selamat! Akun Anda siap: Verifikasi email Anda untuk memulai perjalanan mindfulness dan nikmati pengalaman yang lebih tenang.";
+  static const String emailNotReceivedMessage =
+      "Tidak menerima email? Periksa folder spam/junk atau kirim ulang email verifikasi.";
   static const String yourAccountCreatedTitle = "Akun Anda berhasil dibuat";
-  static const String yourAccountCreatedSubTitle = "Selamat datang di dunia mindfulness Anda: Akun Anda sudah aktif, mulailah perjalanan menuju kedamaian batin.";
+  static const String yourAccountCreatedSubTitle =
+      "Selamat datang di dunia mindfulness Anda: Akun Anda sudah aktif, mulailah perjalanan menuju kedamaian batin.";
 
 //optionMenu
-  static const String cameraTitle ="Kamera";
-  static const String cameraSubTitle = "Gunakan kamera untuk mengambil foto baru.";
+  static const String cameraTitle = "Kamera";
+  static const String cameraSubTitle =
+      "Gunakan kamera untuk mengambil foto baru.";
   static const String galleryTitle = "Galeri";
-  static const String gallerySubTitle = "Pilih gambar dari galeri perangkat Anda.";
+  static const String gallerySubTitle =
+      "Pilih gambar dari galeri perangkat Anda.";
   static const String historyDetectionTitle = "Riwayat Deteksi";
-  static const String historyDetectionSubTitle = "Pilih untuk melihat riwayat hasil deteksi.";
-
-
-
-
+  static const String historyDetectionSubTitle =
+      "Pilih untuk melihat riwayat hasil deteksi.";
 
   //--authentication form text
   static const String firstName = "Nama Depan";
@@ -74,6 +83,66 @@ class TTexts{
   static const String job = "Pekerjaan";
   static const String durationOfHypertention = "Lama Menderita Hipertensi";
 
+// -- PRIVACY AND SECURITY PAGE TEXTS
+  static const String privacyAndSecurityTitle =
+      'Keamanan dan Privasi Anda Adalah Prioritas Kami';
+  static const String privacyAndSecurityDescription =
+      'Kami berkomitmen untuk menjaga privasi dan keamanan data Anda. Di bawah ini, kami menjelaskan bagaimana aplikasi ini mengelola dan melindungi informasi pribadi Anda.';
 
+  // -- SECTION TITLES
+  static const String dataCollectionTitle = 'Pengumpulan Data';
+  static const String dataProtectionTitle = 'Perlindungan Data';
+  static const String privacyPolicyTitle = 'Kebijakan Privasi';
+  static const String userControlTitle = 'Kontrol Pengguna';
+  static const String thirdPartyDataSharingTitle =
+      'Berbagi Data dengan Pihak Ketiga';
+  static const String securityFeaturesTitle = 'Fitur Keamanan';
+  static const String contactUsTitle = 'Hubungi Kami';
 
+  // -- SECTION CONTENTS
+  static const String dataCollectionContent =
+      'Aplikasi ini hanya mengumpulkan data yang diperlukan untuk meningkatkan pengalaman Anda. Kami tidak mengumpulkan data pribadi yang tidak relevan, seperti informasi identitas Anda, tanpa izin Anda.';
+  static const String dataProtectionContent =
+      'Semua data yang dikumpulkan oleh aplikasi dienkripsi dengan standar keamanan tinggi untuk memastikan data Anda terlindungi dari akses yang tidak sah.';
+  static const String privacyPolicyContent =
+      'Kami sangat menghargai privasi Anda. Kebijakan privasi kami menjelaskan jenis data yang kami kumpulkan, bagaimana data tersebut digunakan, dan langkah-langkah yang kami ambil untuk melindunginya.';
+  static const String userControlContent =
+      'Anda memiliki kontrol penuh atas data Anda. Anda dapat mengakses, mengubah, atau menghapus data pribadi Anda kapan saja melalui pengaturan akun.';
+  static const String thirdPartyDataSharingContent =
+      'Kami tidak akan membagikan data Anda dengan pihak ketiga tanpa izin eksplisit dari Anda, kecuali dalam situasi yang diharuskan oleh hukum.';
+  static const String securityFeaturesContent =
+      'Aplikasi ini dilengkapi dengan fitur keamanan seperti autentikasi dua faktor untuk melindungi akun Anda dari akses yang tidak sah.';
+  static const String contactUsContent =
+      'Jika Anda memiliki pertanyaan atau kekhawatiran tentang privasi atau keamanan data Anda, jangan ragu untuk menghubungi tim dukungan kami di support@agroai.com.';
+
+  // -- SETTINGS SCREEN TEXTS
+  static const String accountSettingsTitle = 'Preferensi & Pengaturan';
+  static const String aboutAppTitle = 'Tentang Aplikasi';
+  static const String logoutConfirmationTitle = "Konfirmasi Logout";
+  static const String logoutConfirmationMessage = "Apakah Anda yakin ingin logout?";
+  static const String logoutButtonText = 'Keluar';
+  static const String cancelButtonText = "Batal";
+  static const String okButtonText = "Okay";
+
+  // -- SETTINGS MENU ITEMS
+  static const String changeThemeTitle = 'Ganti Tema';
+  static const String changeThemeSubtitle = 'Pilih antara tema gelap dan terang untuk aplikasi Anda';
+  static const String locationTitle = 'Lokasi';
+  static const String locationSubtitle = 'Kelola pengaturan lokasi perangkat';
+  static const String otherOptionsTitle = 'Opsi Lainnya';
+  static const String otherOptionsSubtitle = 'Temukan pengaturan lainnya yang dapat disesuaikan.';
+  static const String aboutAppSubtitle = 'Informasi tentang aplikasi dan tim pengembang';
+  static const String giveRatingTitle = 'Berikan Penilaian';
+  static const String giveRatingSubtitle = 'Bantu kami dengan memberikan ulasan di Play Store';
+  static const String privacyAndSecuritySubtitle = 'Kelola privasi dan keamanan akun Anda';
+
+  // -- DIALOG MESSAGES
+  static const String featureUnderDevelopmentTitle = "Maaf";
+  static const String featureUnderDevelopmentMessage = "Fitur ini masih dalam tahap pengembangan";
+
+  static const String feedbackFormTitle = 'Berikan Penilaian';
+  static const String feedbackDescription = 'Silakan berikan tanggapan Anda di bawah ini';
+  static const String subjectLabel = 'Subjek';
+  static const String messageLabel = 'Pesan';
+  static const String submitButtonText = 'Submit Feedback';
 }

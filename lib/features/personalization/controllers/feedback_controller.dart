@@ -2,6 +2,7 @@ import 'package:agroai/data/repositories/user/user_repository.dart';
 import 'package:agroai/features/personalization/controllers/user_controller.dart';
 import 'package:agroai/features/personalization/models/feedback_model.dart';
 import 'package:agroai/features/personalization/screens/settings/settings.dart';
+import 'package:agroai/utils/logging/logger.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,7 @@ class FeedbackController extends GetxController {
       );
 
       await userRepository.saveFeedbackRecord(feedback);
+      TLoggerHelper.debug( 'Feedback: $feedback');
 
       TFullScreenLoader.stopLoading();
 

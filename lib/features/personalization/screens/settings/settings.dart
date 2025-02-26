@@ -1,3 +1,4 @@
+import 'package:agroai/features/personalization/screens/settings/widgets/about_app.dart';
 import 'package:agroai/features/personalization/screens/settings/widgets/feedback_form.dart';
 import 'package:agroai/features/personalization/screens/settings/widgets/privacy_securty_page.dart';
 import 'package:app_settings/app_settings.dart';
@@ -84,7 +85,7 @@ class SettingsScreen extends StatelessWidget {
                   TSettingsMenuTile(
                       icon: Iconsax.information,
                       title: TTexts.aboutAppTitle,
-                      onTap: () => showFeatureUnderDevelopmentDialog(context),
+                      onTap: () => Get.to(() => AboutAPPPage()),
                       subTitle: TTexts.aboutAppSubtitle),
                   TSettingsMenuTile(
                     icon: Iconsax.security_user,
@@ -94,7 +95,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   TSettingsMenuTile(
                       icon: Iconsax.security_card,
-                      title: TTexts.privacyAndSecurityTitle,
+                      title: TTexts.privacyAndSecurity,
                       onTap: () => Get.to(() => PrivacyAndSecurityPage()),
                       subTitle: TTexts.privacyAndSecuritySubtitle),
 
@@ -145,6 +146,6 @@ void showFeatureUnderDevelopmentDialog(BuildContext context) {
       Navigator.pop(context);
     },
     panaraDialogType: PanaraDialogType.normal,
-    barrierDismissible: false, // Tidak bisa dismiss dengan mengetuk luar
+    barrierDismissible: false,
   );
 }

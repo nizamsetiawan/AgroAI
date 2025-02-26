@@ -51,7 +51,7 @@ class FeedbackForm extends StatelessWidget {
                   children: [
                     TextFormField(
                       controller: controller.subjectController,
-                      validator: (value) => TValidator.validateGeneral('Subjek'),
+                      validator: (value) => TValidator.validateGeneral(value),
                       decoration: InputDecoration(
                         labelText: TTexts.subjectLabel,
                         prefixIcon: const Icon(Iconsax.edit),
@@ -60,7 +60,7 @@ class FeedbackForm extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwInputFields),
                     TextFormField(
                       controller: controller.messageController,
-                      validator: (value) => TValidator.validateGeneral('Pesan'),
+                      validator: (value) => TValidator.validateGeneral(value),
                       maxLines: 5,
                       decoration: InputDecoration(
                         labelText: TTexts.messageLabel,

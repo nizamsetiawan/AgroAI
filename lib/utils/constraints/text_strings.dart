@@ -84,7 +84,9 @@ class TTexts {
   static const String durationOfHypertention = "Lama Menderita Hipertensi";
 
 // -- PRIVACY AND SECURITY PAGE TEXTS
-  static const String privacyAndSecurityTitle =
+  static const String privacyAndSecurity = "Keamanan dan Privasi";
+
+      static const String privacyAndSecurityTitle =
       'Keamanan dan Privasi Anda Adalah Prioritas Kami';
   static const String privacyAndSecurityDescription =
       'Kami berkomitmen untuk menjaga privasi dan keamanan data Anda. Di bawah ini, kami menjelaskan bagaimana aplikasi ini mengelola dan melindungi informasi pribadi Anda.';
@@ -145,4 +147,12 @@ class TTexts {
   static const String subjectLabel = 'Subjek';
   static const String messageLabel = 'Pesan';
   static const String submitButtonText = 'Submit Feedback';
+
+  //AboutApp
+  static const String aboutAppDescription =
+      'AgroAI adalah aplikasi inovatif yang dirancang untuk membantu petani dalam meningkatkan produktivitas pertanian melalui teknologi deteksi penyakit tanaman yang canggih. Aplikasi ini khusus dikembangkan untuk mendeteksi dan mengklasifikasikan penyakit pada daun tanaman, dengan fokus utama pada tiga komoditas penting, yaitu tomat, singkong, dan jagung. Dengan menggunakan algoritma kecerdasan buatan (AI) dan pembelajaran mesin (machine learning), AgroAI memungkinkan pengguna untuk mendeteksi penyakit pada daun tanaman dengan akurasi tinggi, sehingga memungkinkan tindakan pencegahan yang lebih cepat dan tepat.\n\n'
+      'AgroAI memanfaatkan gambar daun yang diambil menggunakan kamera ponsel pintar untuk menganalisis dan mengidentifikasi gejala penyakit, kemudian memberikan rekomendasi tentang cara mengatasi masalah tersebut. Hal ini memungkinkan petani untuk melakukan perawatan yang lebih efisien, mengurangi penggunaan pestisida yang berlebihan, dan pada akhirnya meningkatkan hasil pertanian.\n\n'
+      'Selain itu, AgroAI juga dilengkapi dengan fitur untuk memantau kondisi kesehatan tanaman secara berkala, yang membantu petani mengidentifikasi perubahan dini pada tanaman mereka. Dengan aplikasi ini, petani dapat membuat keputusan yang lebih informasi berdasarkan data yang real-time, mengurangi kerugian akibat penyakit tanaman, dan meningkatkan kualitas serta kuantitas hasil panen mereka.\n\n'
+      'AgroAI hadir sebagai solusi teknologi dalam dunia pertanian yang terus berkembang, memberikan akses kepada petani untuk mengatasi tantangan yang ada, serta berkontribusi pada keberlanjutan dan efisiensi pertanian modern. Kami berkomitmen untuk mendukung petani dalam menghadapi tantangan cuaca ekstrem dan penyakit tanaman dengan memberikan alat yang dapat diandalkan untuk memastikan pertanian yang lebih produktif dan ramah lingkungan.';
+
 }

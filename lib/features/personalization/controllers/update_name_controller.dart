@@ -8,6 +8,8 @@ import 'package:agroai/utils/helpers/loaders.dart';
 import 'package:agroai/utils/helpers/network_manager.dart';
 import 'package:agroai/utils/popups/full_screen_loader.dart';
 
+import '../../../utils/logging/logger.dart';
+
 ///controller to manage user related functionality
 class UpdateNameController extends GetxController {
   static UpdateNameController get instance => Get.find();
@@ -63,6 +65,7 @@ class UpdateNameController extends GetxController {
       //remove loader
       TFullScreenLoader.stopLoading();
 
+      TLoggerHelper.debug('Updated name: ${userController.user.value.firstName} ${userController.user.value.lastName}');
 
       // show success snack bar
       TLoaders.successSnackBar(title: 'Selamat', message: 'Nama anda berhasil diubah');

@@ -16,4 +16,6 @@ class TRoutes {
   static const privacyAndSecurity = '/privacy-security';
   static const navigationMenu = '/navigation-menu';
   static const feedbackForm = '/feedback-form';
+  static const aboutApp = '/about-app';
+  static const guidelines = '/guidelines';
 }

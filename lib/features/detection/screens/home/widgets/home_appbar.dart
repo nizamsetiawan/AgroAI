@@ -6,6 +6,8 @@ import 'package:agroai/features/personalization/controllers/user_controller.dart
 import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/constraints/text_strings.dart';
 
+import '../../../../../common/widgets/guide/guide_menu_icon.dart';
+
 class THomeAppBar extends StatelessWidget {
   const THomeAppBar({
     super.key,
@@ -40,6 +42,9 @@ class THomeAppBar extends StatelessWidget {
               }),
         ],
       ),
+      actions:  const [
+        TGuideCounterIcon(iconColor: TColors.white)
+      ],
     );
   }
 }

@@ -33,7 +33,8 @@ class AppRoutes {
     GetPage(name: TRoutes.privacyAndSecurity, page: () => const PrivacyAndSecurityPage()),
     GetPage(name: TRoutes.feedbackForm, page: () => const FeedbackForm()),
     GetPage(name: TRoutes.aboutApp, page: () => const AboutAPPPage()),
-    GetPage(name: TRoutes.guidelines, page: () => const GuidelinesScreen())
+    GetPage(name: TRoutes.guidelines, page: () => const GuidelinesScreen()),
+
 
 
   ];

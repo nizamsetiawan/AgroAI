@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:agroai/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/location_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../controllers/banner_controller.dart';
+import '../../controllers/camera_controller.dart';
+import '../../controllers/gallery_controller.dart';
+import '../media/preview/preview_media_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,6 +22,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(GeoTaggingController());
+    final  controllerCamera = Get.put(CameraController());
+    final  controllerImage = Get.put(GalleryController());
+
+
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -77,16 +82,34 @@ class HomeScreen extends StatelessWidget {
                       textColor: Colors.black),
                   SizedBox(height: TSizes.spaceBtwItems),
                   TOptionMenuCard(
-                      showBorder: true,
-                      title: TTexts.cameraTitle,
-                      subtitle: TTexts.cameraSubTitle,
-                      imagePath: TImages.urlCameraIcon),
+                    onTap: () async {
+                      await controllerCamera.captureImage();
+                      if (controllerCamera.capturedImage.value != null) {
+                        Get.to(() => ImagePreviewScreen(
+                          imageFile: controllerCamera.capturedImage.value,
+                        ));
+                      }
+                    },
+                    showBorder: true,
+                    title: TTexts.cameraTitle,
+                    subtitle: TTexts.cameraSubTitle,
+                    imagePath: TImages.urlCameraIcon,
+                  ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   TOptionMenuCard(
-                      showBorder: true,
-                      title: TTexts.galleryTitle,
-                      subtitle: TTexts.gallerySubTitle,
-                      imagePath: TImages.urlGalleryIcon),
+                    onTap: () async {
+                      await controllerImage.selectImageFromGallery();
+                      if (controllerImage.selectedImage.value != null) {
+                        Get.to(() => ImagePreviewScreen(
+                          imageFile: controllerImage.selectedImage.value,
+                        ));
+                      }
+                    },
+                    showBorder: true,
+                    title: TTexts.galleryTitle,
+                    subtitle: TTexts.gallerySubTitle,
+                    imagePath: TImages.urlGalleryIcon,
+                  ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   TOptionMenuCard(
                       showBorder: true,

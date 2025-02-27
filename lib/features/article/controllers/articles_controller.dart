@@ -13,14 +13,13 @@ class ArticleController extends GetxController {
   final RxList<ArticleModel> categoryArticles = <ArticleModel>[].obs;
 
   final articlesRepository = Get.put(ArticlesRepository());
-  final RxString selectedOptions = 'Nama A-Z'.obs;
   final RxString selectedCategory = ''.obs;
 
-  @override
-  void onInit() {
-    fetchAllArticles();
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   fetchAllArticles();
+  //   super.onInit();
+  // }
   void fetchAllArticles() async {
     try {
       TLoggerHelper.info('Fetching featured articles...');

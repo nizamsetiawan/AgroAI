@@ -86,7 +86,7 @@ class TTexts {
 // -- PRIVACY AND SECURITY PAGE TEXTS
   static const String privacyAndSecurity = "Keamanan dan Privasi";
 
-      static const String privacyAndSecurityTitle =
+  static const String privacyAndSecurityTitle =
       'Keamanan dan Privasi Anda Adalah Prioritas Kami';
   static const String privacyAndSecurityDescription =
       'Kami berkomitmen untuk menjaga privasi dan keamanan data Anda. Di bawah ini, kami menjelaskan bagaimana aplikasi ini mengelola dan melindungi informasi pribadi Anda.';
@@ -121,29 +121,37 @@ class TTexts {
   static const String accountSettingsTitle = 'Preferensi & Pengaturan';
   static const String aboutAppTitle = 'Tentang Aplikasi';
   static const String logoutConfirmationTitle = "Konfirmasi Logout";
-  static const String logoutConfirmationMessage = "Apakah Anda yakin ingin logout?";
+  static const String logoutConfirmationMessage =
+      "Apakah Anda yakin ingin logout?";
   static const String logoutButtonText = 'Keluar';
   static const String cancelButtonText = "Batal";
   static const String okButtonText = "Okay";
 
   // -- SETTINGS MENU ITEMS
   static const String changeThemeTitle = 'Ganti Tema';
-  static const String changeThemeSubtitle = 'Pilih antara tema gelap dan terang untuk aplikasi Anda';
+  static const String changeThemeSubtitle =
+      'Pilih antara tema gelap dan terang untuk aplikasi Anda';
   static const String locationTitle = 'Lokasi';
   static const String locationSubtitle = 'Kelola pengaturan lokasi perangkat';
   static const String otherOptionsTitle = 'Opsi Lainnya';
-  static const String otherOptionsSubtitle = 'Temukan pengaturan lainnya yang dapat disesuaikan.';
-  static const String aboutAppSubtitle = 'Informasi tentang aplikasi dan tim pengembang';
+  static const String otherOptionsSubtitle =
+      'Temukan pengaturan lainnya yang dapat disesuaikan.';
+  static const String aboutAppSubtitle =
+      'Informasi tentang aplikasi dan tim pengembang';
   static const String giveRatingTitle = 'Berikan Penilaian';
-  static const String giveRatingSubtitle = 'Bantu kami dengan memberikan ulasan di Play Store';
-  static const String privacyAndSecuritySubtitle = 'Kelola privasi dan keamanan akun Anda';
+  static const String giveRatingSubtitle =
+      'Bantu kami dengan memberikan ulasan di Play Store';
+  static const String privacyAndSecuritySubtitle =
+      'Kelola privasi dan keamanan akun Anda';
 
   // -- DIALOG MESSAGES
   static const String featureUnderDevelopmentTitle = "Maaf";
-  static const String featureUnderDevelopmentMessage = "Fitur ini masih dalam tahap pengembangan";
+  static const String featureUnderDevelopmentMessage =
+      "Fitur ini masih dalam tahap pengembangan";
 
   static const String feedbackFormTitle = 'Berikan Penilaian';
-  static const String feedbackDescription = 'Silakan berikan tanggapan Anda di bawah ini';
+  static const String feedbackDescription =
+      'Silakan berikan tanggapan Anda di bawah ini';
   static const String subjectLabel = 'Subjek';
   static const String messageLabel = 'Pesan';
   static const String submitButtonText = 'Submit Feedback';
@@ -155,4 +163,40 @@ class TTexts {
       'Selain itu, AgroAI juga dilengkapi dengan fitur untuk memantau kondisi kesehatan tanaman secara berkala, yang membantu petani mengidentifikasi perubahan dini pada tanaman mereka. Dengan aplikasi ini, petani dapat membuat keputusan yang lebih informasi berdasarkan data yang real-time, mengurangi kerugian akibat penyakit tanaman, dan meningkatkan kualitas serta kuantitas hasil panen mereka.\n\n'
       'AgroAI hadir sebagai solusi teknologi dalam dunia pertanian yang terus berkembang, memberikan akses kepada petani untuk mengatasi tantangan yang ada, serta berkontribusi pada keberlanjutan dan efisiensi pertanian modern. Kami berkomitmen untuk mendukung petani dalam menghadapi tantangan cuaca ekstrem dan penyakit tanaman dengan memberikan alat yang dapat diandalkan untuk memastikan pertanian yang lebih produktif dan ramah lingkungan.';
 
+  //alertPreviewImage
+  static const String alertPreviewImage =
+      "Pastikan gambar yang diambil jelas dan fokus pada daun yang ingin diperiksa.";
+
+//guidLines title
+  static const String guidelinesTitle = 'Cara Menggunakan Aplikasi AgroAI';
+  static const String step1Title = "Langkah 1: Ambil Gambar Daun";
+  static const String step2Title = "Langkah 2: Deteksi Penyakit Tanaman";
+  static const String step3Title = "Langkah 3: Analisis Penyakit";
+  static const String step4Title = "Langkah 4: Lakukan Tindakan Pencegahan";
+  static const String step5Title = "Langkah 5: Pantau Kesehatan Tanaman";
+  static const String additionalFeatureHistoryTitle =
+      "Fitur Tambahan: Riwayat Analisis";
+  static const String additionalFeatureArticleTitle =
+      "Fitur Tambahan: Artikel Pertanian";
+
+  // guidLines Descriptions
+  static const String step1Description =
+      "Ambil gambar daun tanaman yang ingin Anda deteksi menggunakan kamera ponsel pintar. "
+      "Pastikan gambar yang diambil jelas dan fokus pada daun yang ingin diperiksa.";
+  static const String step2Description =
+      "Aplikasi ini mendeteksi penyakit pada daun tanaman dengan menggunakan algoritma kecerdasan buatan. "
+      "Namun, perlu diketahui bahwa aplikasi ini hanya mendukung deteksi penyakit pada tiga jenis tanaman: Tomat, Singkong, dan Jagung.";
+  static const String step3Description =
+      "Aplikasi akan menganalisis gambar dan memberikan informasi tentang kemungkinan penyakit pada daun tanaman. "
+      "Anda akan menerima rekomendasi pengobatan untuk penyakit tersebut.";
+  static const String step4Description =
+      "Ikuti rekomendasi untuk menangani penyakit tersebut. Anda dapat menggunakan pestisida yang sesuai atau metode perawatan lainnya untuk mencegah penyebaran penyakit.";
+  static const String step5Description =
+      "Setelah perawatan dilakukan, terus pantau kondisi tanaman Anda menggunakan aplikasi untuk memastikan tanaman tetap sehat dan bebas dari penyakit.";
+  static const String additionalFeatureHistoryDescription =
+      "AgroAI menyediakan fitur riwayat analisis yang memungkinkan Anda untuk melacak hasil deteksi penyakit tanaman sebelumnya. "
+      "Fitur ini membantu Anda untuk mengawasi perkembangan tanaman Anda dari waktu ke waktu dan memastikan tanaman Anda selalu terjaga dari penyakit.";
+  static const String additionalFeatureArticleDescription =
+      "Aplikasi ini juga menyediakan berbagai artikel yang berhubungan dengan pertanian, khususnya yang berkaitan dengan tiga jenis tanaman utama kami, yaitu Tomat, Singkong, dan Jagung. "
+      "Artikel-artikel ini memberikan informasi yang berguna mengenai perawatan tanaman, cara mengatasi penyakit, dan tips bertani yang lebih efektif.";
 }

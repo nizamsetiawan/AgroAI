@@ -14,6 +14,8 @@ class ArticleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final articleController = Get.put(ArticleController());
+    articleController.fetchAllArticles();
+
 
     return Scaffold(
       appBar: const TAppBar(

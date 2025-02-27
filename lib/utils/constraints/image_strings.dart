@@ -54,7 +54,8 @@ class TImages{
 static const String urlCameraIcon = 'https://img.icons8.com/?size=100&id=110581&format=png&color=000000';
 static const String urlGalleryIcon = 'https://img.icons8.com/?size=100&id=64062&format=png&color=000000';
 static const String urlHistoryIcon = 'https://img.icons8.com/?size=100&id=122593&format=png&color=000000';
-
+//detection
+static const String imagePlaceholder = 'assets/images/detection/image_placeholder.png';
 
 
 

@@ -18,4 +18,8 @@ class TRoutes {
   static const feedbackForm = '/feedback-form';
   static const aboutApp = '/about-app';
   static const guidelines = '/guidelines';
+  static const cameraCapture = '/camera-capture';
+  static const imageGallery = '/image-gallery';
+  static const mediaPreview = '/media-preview';
+  static const resultAnalysis = '/result-analysis';
 }

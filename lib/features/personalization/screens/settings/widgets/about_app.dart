@@ -1,12 +1,10 @@
 import 'package:agroai/utils/constraints/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:agroai/common/widgets/appbar/appbar.dart';
-import 'package:agroai/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:agroai/common/widgets/images/t_rounded_image.dart';
 import 'package:agroai/common/widgets/texts/product_title_text.dart';
 import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
-
 import '../../../../../common/widgets/texts/option_menu_text.dart';
 import '../../../../../utils/constraints/text_strings.dart';
 

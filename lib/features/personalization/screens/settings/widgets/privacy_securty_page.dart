@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:agroai/utils/constraints/colors.dart';
 import 'package:agroai/utils/constraints/sizes.dart';
-
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/texts/option_menu_text.dart';
 import '../../../../../common/widgets/texts/product_title_text.dart';

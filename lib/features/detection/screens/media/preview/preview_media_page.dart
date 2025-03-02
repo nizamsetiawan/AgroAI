@@ -1,12 +1,15 @@
 import 'dart:io';
-import 'package:agroai/common/widgets/images/t_rounded_image.dart';
-import 'package:agroai/utils/constraints/colors.dart';
-import 'package:agroai/utils/constraints/image_strings.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../../../common/widgets/appbar/appbar.dart';
+import '../../../../../common/widgets/images/t_rounded_image.dart';
+import '../../../../../utils/constraints/colors.dart';
+import '../../../../../utils/constraints/image_strings.dart';
 import '../../../../../utils/constraints/sizes.dart';
 import '../../../../../utils/constraints/text_strings.dart';
+import '../../../controllers/model_controller.dart';
 import '../result_analyze/result_analyze.dart';
 
 class ImagePreviewScreen extends StatelessWidget {
@@ -19,8 +22,10 @@ class ImagePreviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final modelController = Get.put(ModelController());
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Pratinjau Gambar")),
+      appBar: TAppBar(title: const Text("Pratinjau Gambar"), showBackArrow: true,),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -59,9 +64,10 @@ class ImagePreviewScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-                    String detectionResult =
-                        await _detectDisease(imageFile!.path);
-                    Get.to(() => ResultScreen(resultMessage: detectionResult));
+                    if (imageFile != null) {
+                      await modelController.loadModel();
+                      await modelController.runInference(imageFile!.path);
+                    }
                   },
                   child: const Text("Scan Disease"),
                 ),
@@ -71,12 +77,5 @@ class ImagePreviewScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // A placeholder function simulating disease detection.
-  // Replace this with the actual logic.
-  Future<String> _detectDisease(String imagePath) async {
-    await Future.delayed(const Duration(seconds: 2));
-    return "Detection Complete: Disease X identified.";
   }
 }

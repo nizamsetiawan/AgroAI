@@ -1,5 +1,6 @@
 import 'package:agroai/common/widgets/option_menu/option_menu_card.dart';
 import 'package:agroai/features/detection/controllers/location_controller.dart';
+import 'package:agroai/features/detection/screens/history/history_screen.dart';
 import 'package:agroai/features/detection/screens/home/widgets/home_appbar.dart';
 import 'package:agroai/features/detection/screens/home/widgets/home_categories.dart';
 import 'package:agroai/features/detection/screens/home/widgets/home_slider.dart';
@@ -112,6 +113,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   TOptionMenuCard(
+                    onTap: () {
+                      Get.to(() =>  HistoryScreen());
+                    },
                       showBorder: true,
                       title: TTexts.historyDetectionTitle,
                       subtitle: TTexts.historyDetectionSubTitle,

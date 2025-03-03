@@ -40,6 +40,7 @@ class TImages{
   static const String cloudUploadingAnimation = "assets/images/animations/cloud-uploading-animation.json";
   static const String loaderAnimation = "assets/images/animations/loader-animation.json";
   static const String forgotPassword = "assets/images/animations/forgotpassword.json";
+  static const String failedAnalyze = "assets/images/animations/failed.json";
 
 
   // -- Product reviews

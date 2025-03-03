@@ -20,19 +20,44 @@ class ModelRepository {
   final _db = FirebaseFirestore.instance;
 
 
-  Future<String?> loadModel() async {
+  // Future<String?> loadModel() async {
+  //   try {
+  //     String? res = await Tflite.loadModel(
+  //       // model: "assets/model/modelSkripsiNizaTomat.tflite",
+  //       // labels: "assets/model/tomato.txt",
+  //       model: "assets/model/DeteksiPenyakitTanamanMoNet.tflite",
+  //       labels: "assets/model/label.txt",
+  //     );
+  //     isModelLoaded = true;
+  //     return res;
+  //   } catch (e) {
+  //     TLoggerHelper.error("Failed to load the model: $e");
+  //     return null;
+  //   }
+  // }
+  Future<String?> loadModel(String modelName) async {
     try {
-      String? res = await Tflite.loadModel(
-        // model: "assets/model/modelSkripsiNizaTomat.tflite",
-        // labels: "assets/model/tomato.txt",
-        model: "assets/model/DeteksiPenyakitTanamanMoNet.tflite",
-        labels: "assets/model/label.txt",
-      );
+      String? res;
+      if (modelName == 'Tanaman Tomat') {
+        res = await Tflite.loadModel(
+          model: "assets/model/DeteksiPenyakitTanamanMoNet.tflite",
+          labels: "assets/model/label.txt",
+        );
+      } else if (modelName == 'Tanaman Singkong') {
+        res = await Tflite.loadModel(
+          model: "assets/model/DeteksiPenyakitTanamanMoNet.tflite",
+          labels: "assets/model/label.txt",
+        );
+      } else if (modelName == 'Tanaman Jagung') {
+        res = await Tflite.loadModel(
+          model: "assets/model/modelSkripsiNizamJagung.tflite",
+          labels: "assets/model/jagung.txt",
+        );
+      }
       isModelLoaded = true;
       return res;
     } catch (e) {
-      TLoggerHelper.error("Failed to load the model: $e");
-      return null;
+      throw "Failed to load the model: $e";
     }
   }
 
@@ -45,13 +70,16 @@ class ModelRepository {
       return snapshot.docs.map((e) {
         final data = e.data();
         final pencegahan = data['pencegahan'] as String;
+
         final pencegahanList = pencegahan.split('.').where((point) => point.trim().isNotEmpty).toList();
-        final formattedPencegahan = pencegahanList.asMap().entries.map((entry) {
-          return '${entry.key + 1}. ${entry.value.trim()}';
-        }).join('\n');
+
+        final formattedPencegahan = pencegahanList.map((point) {
+          return '💡 ${point.trim()}.';
+        }).join(' ');
 
         return ResultAnalyzeModel.fromSnapshot(e)..pencegahan = formattedPencegahan;
       }).toList();
+
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
@@ -73,7 +101,7 @@ class ModelRepository {
           imageMean: 0.0,
           imageStd: 255.0,
         numResults: 1,
-        threshold: 0.4,
+        threshold: 0.1,
         asynch: true,
       );
       return recognitions;
@@ -112,8 +140,8 @@ class ModelRepository {
     List<dynamic> savedResults = localStorage.read('detectionResults') ?? [];
 
     if (index >= 0 && index < savedResults.length) {
-      savedResults.removeAt(index); // Hapus item berdasarkan indeks
-      localStorage.write('detectionResults', savedResults); // Simpan kembali ke local storage
+      savedResults.removeAt(index);
+      localStorage.write('detectionResults', savedResults);
       TLoggerHelper.info("Item dengan indeks $index berhasil dihapus.");
     } else {
       TLoggerHelper.error("Indeks tidak valid: $index");
@@ -121,7 +149,7 @@ class ModelRepository {
   }
 
   void deleteAllDetectionResults() {
-    localStorage.remove('detectionResults'); // Hapus semua data
+    localStorage.remove('detectionResults');
     TLoggerHelper.info("Semua hasil deteksi berhasil dihapus.");
   }
 

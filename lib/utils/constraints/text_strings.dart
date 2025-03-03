@@ -166,6 +166,7 @@ class TTexts {
   //alertPreviewImage
   static const String alertPreviewImage =
       "Pastikan gambar yang diambil jelas dan fokus pada daun yang ingin diperiksa.";
+  static const String btnPreviewImage = "Mulai Analisis";
 
 //guidLines title
   static const String guidelinesTitle = 'Cara Menggunakan Aplikasi AgroAI';
@@ -199,4 +200,15 @@ class TTexts {
   static const String additionalFeatureArticleDescription =
       "Aplikasi ini juga menyediakan berbagai artikel yang berhubungan dengan pertanian, khususnya yang berkaitan dengan tiga jenis tanaman utama kami, yaitu Tomat, Singkong, dan Jagung. "
       "Artikel-artikel ini memberikan informasi yang berguna mengenai perawatan tanaman, cara mengatasi penyakit, dan tips bertani yang lebih efektif.";
+
+  ///Disease
+static const String failedAnalyzeTitle = "Analisis Gagal";
+static const String failedAnalyzeSUbTitle = "Maaf, kami tidak dapat menganalisis penyakit dengan akurasi yang cukup. Silakan coba lagi dengan gambar yang lebih jelas.";
+static const String btnRetry = "Coba Lagi";
+static const String btnBackAll = "Selesai";
+static const String btnSaveToHistory = "Simpan Hasil";
+
+///History
+static const String historyTitle = "Belum Ada Riwayat";
+static const String historySubtitle = "Riwayat analisis Anda masih kosong. Silakan lakukan analisis untuk melihat hasilnya.";
 }

@@ -4,8 +4,7 @@ Here's a professional `README.md` for your AgroAI Flutter project:
 # AgroAI 🌱📱
 
 **Plant Disease Detection & Agricultural Assistant**
-
-![AgroAI Banner] https://res.cloudinary.com/dsqajzles/image/upload/v1743867073/github/uwiwb6vijlpldmk4wyhb.png
+![App Logo](https://res.cloudinary.com/dsqajzles/image/upload/f_auto,q_auto/v1/github/uwiwb6vijlpldmk4wyhb) 
 
 ## 🔍 Overview
 AgroAI is a Flutter-based mobile application that helps farmers and agricultural enthusiasts identify plant diseases using TensorFlow Lite machine learning. With additional features like geolocation-based insights, Firebase-backed data storage, and agricultural best practices, it serves as a comprehensive farming companion.

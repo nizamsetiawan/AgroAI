@@ -87,6 +87,7 @@ class HomeScreen extends StatelessWidget {
                       await controllerCamera.captureImage();
                       if (controllerCamera.capturedImage.value != null) {
                         Get.to(() => ImagePreviewScreen(
+                          isFromCamera: true,
                           imageFile: controllerCamera.capturedImage.value,
                         ));
                       }
@@ -103,6 +104,7 @@ class HomeScreen extends StatelessWidget {
                       if (controllerImage.selectedImage.value != null) {
                         Get.to(() => ImagePreviewScreen(
                           imageFile: controllerImage.selectedImage.value,
+                          isFromCamera: false,
                         ));
                       }
                     },

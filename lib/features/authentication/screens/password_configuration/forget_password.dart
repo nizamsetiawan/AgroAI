@@ -18,47 +18,49 @@ class ForgetPassword extends StatelessWidget {
     final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: const TAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ///heading
-            Text(TTexts.forgotPassword,
-                style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: TSizes.spaceBtwItems),
-            Text(TTexts.forgotPasswordSubTitle,
-                style: Theme.of(context).textTheme.labelMedium),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Center(
-              child: Lottie.asset(
-                TImages.forgotPassword,
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.3,
-                fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ///heading
+              Text(TTexts.forgotPassword,
+                  style: Theme.of(context).textTheme.headlineMedium),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              Text(TTexts.forgotPasswordSubTitle,
+                  style: Theme.of(context).textTheme.labelMedium),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Center(
+                child: Lottie.asset(
+                  TImages.forgotPassword,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-
-            ///text field
-            Form(
-              key: controller.forgetPasswordFormKey,
-              child: TextFormField(
-                controller: controller.email,
-                validator: TValidator.validateEmail,
-                decoration: const InputDecoration(
-                    labelText: TTexts.email,
-                    prefixIcon: Icon(Iconsax.direct_inbox)),
+              const SizedBox(height: TSizes.spaceBtwSections),
+        
+              ///text field
+              Form(
+                key: controller.forgetPasswordFormKey,
+                child: TextFormField(
+                  controller: controller.email,
+                  validator: TValidator.validateEmail,
+                  decoration: const InputDecoration(
+                      labelText: TTexts.email,
+                      prefixIcon: Icon(Iconsax.direct_inbox)),
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-
-            ///submit button
-            SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(onPressed: () => controller.sendPasswordResetEmail(),
-                    child: const Text(TTexts.submit)))
-          ],
+              const SizedBox(height: TSizes.spaceBtwSections),
+        
+              ///submit button
+              SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: () => controller.sendPasswordResetEmail(),
+                      child: const Text(TTexts.submit)))
+            ],
+          ),
         ),
       ),
     );

@@ -15,7 +15,7 @@ import '../../../../../utils/constraints/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../controllers/model_controller.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
   final String label;
   final String confidence;
   final ResultAnalyzeModel resultAnalyzeModel;
@@ -32,6 +32,16 @@ class ResultScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ResultScreen> createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  bool _showMoreHayati = false;
+  bool _showMoreKimiawi = false;
+  bool _showMorePenyebab = false;
+  bool _showMorePencegahan = false;
+
+  @override
   Widget build(BuildContext context) {
     final modelController = Get.put(ModelController());
     final isDark = THelperFunctions.isDarkMode(context);
@@ -39,7 +49,7 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         title: const Text("Hasil Analisis"),
-          showBackArrow: isFromHistory!,
+        showBackArrow: widget.isFromHistory!,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -47,7 +57,7 @@ class ResultScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (imagePath.isNotEmpty)
+              if (widget.imagePath.isNotEmpty)
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -60,7 +70,7 @@ class ResultScreen extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: Image.file(
-                          File(imagePath),
+                          File(widget.imagePath),
                           fit: BoxFit.cover,
                           width: double.infinity,
                         ),
@@ -73,7 +83,7 @@ class ResultScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: TSizes.sm, vertical: TSizes.xs),
                           child: Text(
-                            'Kategori - ${resultAnalyzeModel.kategori}',
+                            'Kategori - ${widget.resultAnalyzeModel.kategori}',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge!
@@ -89,14 +99,14 @@ class ResultScreen extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  label,
+                  widget.label,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
               ),
               Center(
                 child: Text(
-                  "Akurasi : ${confidence}",
+                  "Akurasi : ${widget.confidence}",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
@@ -116,7 +126,7 @@ class ResultScreen extends StatelessWidget {
                 height: TSizes.borderRadiusMd,
               ),
               TProductTitleText(
-                title: resultAnalyzeModel.gejala,
+                title: widget.resultAnalyzeModel.gejala,
                 textAlign: TextAlign.justify,
                 smallSize: true,
                 maxLines: 1000,
@@ -133,10 +143,7 @@ class ResultScreen extends StatelessWidget {
                 height: TSizes.borderRadiusMd,
               ),
               TRoundedContainer(
-                padding: const EdgeInsets.only(
-                    top: TSizes.spaceBtwItems / 2,
-                    right: TSizes.spaceBtwItems / 2,
-                    left: TSizes.borderRadiusSm),
+                padding: const EdgeInsets.all(TSizes.md),
                 showBorder: true,
                 borderColor: isDark ? TColors.secondary : TColors.primary,
                 backgroundColor: Colors.transparent,
@@ -163,7 +170,7 @@ class ResultScreen extends StatelessWidget {
                                 "Pengendalian Hayati",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: isDark
                                       ? TColors.primary
@@ -174,16 +181,43 @@ class ResultScreen extends StatelessWidget {
                                 height: TSizes.borderRadiusMd,
                               ),
                               TProductTitleText(
-                                title: resultAnalyzeModel.pengendalianHayati,
+                                title: widget
+                                    .resultAnalyzeModel.pengendalianHayati,
                                 textAlign: TextAlign.justify,
                                 smallSize: true,
-                                maxLines: 1000,
+                                maxLines: _showMoreHayati ? 1000 : 3,
                               ),
+                              if (widget.resultAnalyzeModel.pengendalianHayati
+                                      .length >
+                                  100)
+                                TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _showMoreHayati = !_showMoreHayati;
+                                    });
+                                  },
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    minimumSize: const Size(50, 30),
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                  child: Text(
+                                    _showMoreHayati
+                                        ? 'Lihat Lebih Sedikit'
+                                        : 'Lihat Selengkapnya',
+                                    style: TextStyle(
+                                      color: TColors.error,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
                         ),
                       ],
                     ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -205,7 +239,7 @@ class ResultScreen extends StatelessWidget {
                                 "Pengendalian Kimiawi",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: isDark
                                       ? TColors.primary
@@ -216,11 +250,37 @@ class ResultScreen extends StatelessWidget {
                                 height: TSizes.borderRadiusMd,
                               ),
                               TProductTitleText(
-                                title: resultAnalyzeModel.pengendalianHayati,
+                                title: widget
+                                    .resultAnalyzeModel.pengendalianKimiawi,
                                 textAlign: TextAlign.justify,
                                 smallSize: true,
-                                maxLines: 1000,
+                                maxLines: _showMoreKimiawi ? 1000 : 3,
                               ),
+                              if (widget.resultAnalyzeModel.pengendalianKimiawi
+                                      .length >
+                                  100)
+                                TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _showMoreKimiawi = !_showMoreKimiawi;
+                                    });
+                                  },
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    minimumSize: const Size(50, 30),
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                  child: Text(
+                                    _showMoreKimiawi
+                                        ? 'Lihat Lebih Sedikit'
+                                        : 'Lihat Selengkapnya',
+                                    style: TextStyle(
+                                      color: TColors.error,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
                         ),
@@ -236,7 +296,7 @@ class ResultScreen extends StatelessWidget {
                 "Apa Penyebabnya ?",
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: TColors.primary,
                 ),
@@ -245,16 +305,44 @@ class ResultScreen extends StatelessWidget {
                 height: TSizes.borderRadiusMd,
               ),
               TProductTitleText(
-                title: resultAnalyzeModel.penyebab,
+                title: widget.resultAnalyzeModel.penyebab,
                 textAlign: TextAlign.justify,
                 smallSize: true,
-                maxLines: 1000,
+                maxLines: _showMorePenyebab ? 1000 : 3,
+              ),
+              if (widget.resultAnalyzeModel.penyebab.length > 100)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _showMorePenyebab = !_showMorePenyebab;
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(50, 24),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      _showMorePenyebab
+                          ? 'Lihat Lebih Sedikit'
+                          : 'Lihat Selengkapnya',
+                      style: TextStyle(
+                        color: TColors.error,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              const SizedBox(
+                height: TSizes.spaceBtwSections / 2,
               ),
               Text(
                 "Pencegahan",
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: TColors.primary,
                 ),
@@ -263,45 +351,69 @@ class ResultScreen extends StatelessWidget {
                 height: TSizes.borderRadiusMd,
               ),
               TProductTitleText(
-                title: resultAnalyzeModel.pencegahan,
+                title: widget.resultAnalyzeModel.pencegahan,
                 textAlign: TextAlign.justify,
                 smallSize: true,
-                maxLines: 1000,
+                maxLines: _showMorePencegahan ? 1000 : 3,
               ),
+              if (widget.resultAnalyzeModel.pencegahan.length > 100)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _showMorePencegahan = !_showMorePencegahan;
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(50, 24),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      _showMorePencegahan
+                          ? 'Lihat Lebih Sedikit'
+                          : 'Lihat Selengkapnya',
+                      style: TextStyle(
+                        color: TColors.error,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
               const SizedBox(
                 height: TSizes.spaceBtwSections / 2,
               ),
-              if ((!isFromHistory!))
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                        Expanded(
-                          child: SizedBox(
-                            child: OutlinedButton(
-                              onPressed: () {
-                                modelController.saveCurrentResult(imagePath);
-                              },
-                              child: const Text(TTexts.btnSaveToHistory),
-                            ),
-                          ),
+              if ((!widget.isFromHistory!))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        child: OutlinedButton(
+                          onPressed: () {
+                            modelController.saveCurrentResult(widget.imagePath);
+                          },
+                          child: const Text(TTexts.btnSaveToHistory),
                         ),
-                        const SizedBox(
-                          width: TSizes.defaultSpace,
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Get.offAll(NavigationMenu());
-                              },
-                              child: const Text(TTexts.btnBackAll),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                ],
-
+                    const SizedBox(
+                      width: TSizes.defaultSpace,
+                    ),
+                    Expanded(
+                      child: SizedBox(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.offAll(NavigationMenu());
+                          },
+                          child: const Text(TTexts.btnBackAll),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ],
           ),
         ),
       ),

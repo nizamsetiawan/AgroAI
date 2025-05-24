@@ -58,6 +58,7 @@ class SignupController extends GetxController {
 
       //privacy policy check
       if (!privacyPolicy.value) {
+        TFullScreenLoader.stopLoading();
         TLoaders.warningSnackBar(
           title: 'Terima kebijakan privasi',
           message:

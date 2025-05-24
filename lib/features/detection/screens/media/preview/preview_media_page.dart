@@ -11,15 +11,18 @@ import '../../../../../utils/constraints/colors.dart';
 import '../../../../../utils/constraints/image_strings.dart';
 import '../../../../../utils/constraints/sizes.dart';
 import '../../../../../utils/constraints/text_strings.dart';
+import '../../../../../utils/helpers/loaders.dart';
 import '../../../controllers/model_controller.dart';
 
 class ImagePreviewScreen extends StatelessWidget {
   const ImagePreviewScreen({
     Key? key,
     required this.imageFile,
+    required this.isFromCamera,
   }) : super(key: key);
 
   final XFile? imageFile;
+  final bool isFromCamera;
 
   @override
   Widget build(BuildContext context) {
@@ -113,8 +116,13 @@ class ImagePreviewScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     if (imageFile != null) {
+                      if (modelController.selectedModel.value.isEmpty) {
+                        TLoaders.errorSnackBar(title: 'Oh tidak...', message: 'Silakan pilih jenis tanaman terlebih dahulu.');
+                        return;
+                      }
                       await modelController.loadModel();
-                      await modelController.runInference(imageFile!.path);
+                      await modelController.runInference(imageFile!.path, isFromCamera: isFromCamera);
+
                     }
                                     },
                   child: const Text(TTexts.btnPreviewImage),
